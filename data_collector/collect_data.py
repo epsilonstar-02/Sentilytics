@@ -20,44 +20,53 @@ PRODUCTS = [
     {
         "name": "iPhone 17",
         "release_date": "2025-09-19",
-        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d")
+        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d"),
+        "model_id": "A3258"  # US/PR, other regions may vary (A3519, A3520, A3521)
     },
     {
         "name": "iPhone 17 Pro",
         "release_date": "2025-09-19",
-        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d")
+        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d"),
+        "model_id": "A3256"  # US/PR, other regions may vary (A3522, A3523, A3524)
     },
     {
         "name": "iPhone Air",
         "release_date": "2025-09-19",
-        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d")
+        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d"),
+        "model_id": "A3260"  # US/PR/Bahrain/Canada/Guam/Kuwait/Mexico/Oman/Qatar/Saudi Arabia/UAE, other regions may vary (A3516, A3517, A3518)
     },
     {
         "name": "Apple Watch Series 11",
         "release_date": "2025-09-19",
-        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d")
+        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d"),
+        "model_id": "A3335"  # 42mm GPS+Cellular (US/EU/AP), other variants: A3337 (46mm), A3452 (China 42mm), A3453 (China 46mm)
     },
     {
         "name": "Apple Watch Ultra 3",
         "release_date": "2025-09-19",
-        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d")
+        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d"),
+        "model_id": "A3339"  # 49mm Titanium (US/EU/AP), other variants may exist for China
     },
     {
         "name": "AirPods Pro 3",
         "release_date": "2025-09-19",
-        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d")
+        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d"),
+        "model_id": "A3063"  # Standard model, other variants: A3064, A3065
     },
     {
         "name": "Apple Vision Pro M5",
         "release_date": "2025-09-19",
-        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d")
+        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d"),
+        "model_id": "A3416"  # M5 model, also listed as RealityDevice17,1
     },
     {
         "name": "iPad Pro M5",
         "release_date": "2025-10-22",
-        "end_date": (datetime.strptime("2025-10-22", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d")
+        "end_date": (datetime.strptime("2025-10-22", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d"),
+        "model_id": "MDWM4HN/A"  # 11-inch Wi-Fi, other variants exist for 13-inch and cellular models
     }
 ]
+
 
 def detect_rate_limited_error(msg: str) -> bool:
     if not msg:
