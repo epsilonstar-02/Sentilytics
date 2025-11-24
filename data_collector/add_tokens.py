@@ -46,40 +46,44 @@ def process_file(file_path):
         return 0, 0
 
 def main():
-    data_dir = os.path.join(os.path.dirname(__file__), "data")
+    data_dir = os.path.join(os.path.dirname(__file__), "data", "transcripts")
     if not os.path.exists(data_dir):
-        print(f"Data directory not found: {data_dir}")
+        print(f"Transcripts directory not found: {data_dir}")
         return
 
-    json_files = glob.glob(os.path.join(data_dir, "*_transcripts.json"))
+    # Find all json files recursively
+    json_files = glob.glob(os.path.join(data_dir, "**", "*.json"), recursive=True)
     
     if not json_files:
         print("No transcript files found.")
         return
 
-    print("=" * 80)
-    print(f"{'Product':<30} {'Videos':>10} {'Total Tokens':>15} {'Avg Tokens':>12}")
-    print("-" * 80)
+    print("=" * 90)
+    print(f"{'File':<50} {'Videos':>10} {'Total Tokens':>15} {'Avg Tokens':>12}")
+    print("-" * 90)
 
     grand_total_videos = 0
     grand_total_tokens = 0
 
     for file_path in json_files:
-        filename = os.path.basename(file_path)
-        product_name = filename.replace('_transcripts.json', '').replace('_', ' ')
+        # Determine display name
+        rel_path = os.path.relpath(file_path, data_dir)
         
         video_count, tokens = process_file(file_path)
         
         avg_tokens = tokens // video_count if video_count > 0 else 0
         
-        print(f"{product_name:<30} {video_count:>10} {tokens:>15,} {avg_tokens:>12,}")
+        # Truncate path if too long
+        display_name = rel_path if len(rel_path) < 48 else "..." + rel_path[-45:]
+        
+        print(f"{display_name:<50} {video_count:>10} {tokens:>15,} {avg_tokens:>12,}")
         
         grand_total_videos += video_count
         grand_total_tokens += tokens
 
-    print("-" * 80)
-    print(f"{'TOTAL':<30} {grand_total_videos:>10} {grand_total_tokens:>15,} {grand_total_tokens//grand_total_videos if grand_total_videos else 0:>12,}")
-    print("=" * 80)
+    print("-" * 90)
+    print(f"{'TOTAL':<50} {grand_total_videos:>10} {grand_total_tokens:>15,} {grand_total_tokens//grand_total_videos if grand_total_videos else 0:>12,}")
+    print("=" * 90)
 
 if __name__ == "__main__":
     main()

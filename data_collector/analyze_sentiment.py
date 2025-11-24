@@ -80,31 +80,47 @@ def analyze_sentiment(transcript, product_name):
         return None
 
 def main():
-    data_dir = os.path.join(os.path.dirname(__file__), "data")
+    data_dir = os.path.join(os.path.dirname(__file__), "data", "transcripts")
     sentiment_dir = os.path.join(os.path.dirname(__file__), "sentiment_data")
     os.makedirs(sentiment_dir, exist_ok=True)
     
     if not os.path.exists(data_dir):
-        logging.error(f"Data directory not found: {data_dir}")
+        logging.error(f"Transcripts directory not found: {data_dir}")
         return
 
-    json_files = glob.glob(os.path.join(data_dir, "*_transcripts.json"))
+    # Find all json files recursively
+    json_files = glob.glob(os.path.join(data_dir, "**", "*.json"), recursive=True)
     
     if not json_files:
         logging.error("No transcript files found.")
         return
 
     for file_path in json_files:
-        filename = os.path.basename(file_path)
-        product_name = filename.replace('_transcripts.json', '').replace('_', ' ')
-        output_filename = filename.replace('_transcripts.json', '_sentiment.json')
-        output_path = os.path.join(sentiment_dir, output_filename)
+        # Determine relative path to mirror structure
+        rel_path = os.path.relpath(file_path, data_dir)
         
-        logging.info(f"Processing {product_name} from {filename}...")
+        # Determine output path
+        output_path = os.path.join(sentiment_dir, rel_path)
+        output_dir_for_file = os.path.dirname(output_path)
+        os.makedirs(output_dir_for_file, exist_ok=True)
+        
+        # Extract product name
+        parts = rel_path.split(os.sep)
+        if len(parts) >= 2:
+            product_name = parts[-2].replace('_', ' ')
+        else:
+            filename = os.path.basename(file_path)
+            product_name = filename.replace('_transcripts.json', '').replace('.json', '').replace('_', ' ')
+
+        logging.info(f"Processing {product_name} from {rel_path}...")
         
         # Load transcripts
-        with open(file_path, 'r', encoding='utf-8') as f:
-            transcripts_data = json.load(f)
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                transcripts_data = json.load(f)
+        except Exception as e:
+            logging.error(f"Error reading {file_path}: {e}")
+            continue
             
         # Load existing sentiment data if available
         sentiment_data = []
@@ -142,7 +158,7 @@ def main():
                     "video_id": video_id,
                     "title": item.get('title'),
                     "url": item.get('url'),
-                    "upload_date": item.get('upload_date'), # Assuming this might be added later or is missing
+                    "date": item.get('date'),
                     "sentiment_analysis": analysis
                 }
                 
@@ -159,7 +175,7 @@ def main():
             else:
                 logging.warning(f"Skipping video {video_id} due to analysis failure.")
         
-        logging.info(f"Finished {product_name}. Total analyzed: {len(sentiment_data)}\n")
+        logging.info(f"Finished {product_name} ({rel_path}). Total analyzed: {len(sentiment_data)}\n")
 
 if __name__ == "__main__":
     main()
