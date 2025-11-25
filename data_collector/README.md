@@ -36,7 +36,7 @@ To avoid bot detection and access transcripts reliably, `yt-dlp` requires a cook
 1. Install a browser extension to export cookies (e.g., "Get cookies.txt LOCALLY" for Chrome/Firefox).
 2. Go to [YouTube](https://www.youtube.com) and ensure you are logged in.
 3. Use the extension to export your cookies as `cookies.txt`.
-4. Place the `cookies.txt` file in the **data_collector directory** of this project.
+4. Place the `cookies.txt` file in the **project root directory** (preferred) or the `data_collector` directory.
 
 ## Usage
 

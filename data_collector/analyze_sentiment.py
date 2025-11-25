@@ -3,7 +3,6 @@ import os
 import glob
 import logging
 from openai import OpenAI
-from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
 # Configure logging

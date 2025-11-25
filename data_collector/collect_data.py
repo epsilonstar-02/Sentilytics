@@ -1,6 +1,5 @@
 import json
 import os
-import glob
 import time
 import random
 import re
@@ -27,12 +26,9 @@ if not YOUTUBE_API_KEY:
     logging.warning("YOUTUBE_API_KEY not found in environment variables. API calls will fail.")
 
 PRODUCTS = [
-    {
-        "name": "iPhone 17 Pro",
-        "release_date": "2025-09-19",
-        "end_date": (datetime.strptime("2025-09-19", "%Y-%m-%d") + timedelta(days=60)).strftime("%Y-%m-%d"),
-        "model_id": "A3256"  # US/PR, other regions may vary (A3522, A3523, A3524)
-    }
+    {"name": "iPhone 17 Pro"},
+    {"name": "ChatGPT GPT-5"},
+    {"name": "MacBook Pro 14-inch M5"},
 ]
 
 

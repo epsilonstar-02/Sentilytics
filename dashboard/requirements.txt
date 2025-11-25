@@ -1,0 +1,8 @@
+# Dashboard dependencies
+dash>=2.14.0
+dash-bootstrap-components>=1.5.0
+python-dotenv>=1.0.0
+
+# These should already be installed from the main project
+google-adk
+google-generativeai
