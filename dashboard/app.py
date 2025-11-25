@@ -650,15 +650,18 @@ def parse_response_for_images(response: str):
     # Also try to find and load images from file paths if no base64 found
     if not images:
         # Look for plot file paths in the response - use a single comprehensive pattern
-        # Match full Windows paths to .png files in plots folder
-        path_pattern = r'C:[\\\/][^\s\n]*[\\\/]plots[\\\/][^\s\n]+\.png'
-        path_matches = re.findall(path_pattern, response, re.IGNORECASE)
+        # Match both Windows paths (C:\...\plots\...) and Linux paths (/workspace/plots/...)
+        windows_pattern = r'C:[\\\/][^\s\n]*[\\\/]plots[\\\/][^\s\n]+\.png'
+        linux_pattern = r'\/[^\s\n]*\/plots\/[^\s\n]+\.png'
+        
+        path_matches = re.findall(windows_pattern, response, re.IGNORECASE)
+        path_matches.extend(re.findall(linux_pattern, response, re.IGNORECASE))
         
         # Deduplicate paths (normalize and use set)
         seen_paths = set()
         for path_match in path_matches:
-            # Normalize the path
-            img_path = path_match.replace('\\\\', '\\').replace('/', '\\')
+            # Normalize the path based on current OS
+            img_path = os.path.normpath(path_match.replace('\\\\', os.sep).replace('/', os.sep).replace('\\', os.sep))
             
             # Skip if we've already processed this path
             if img_path.lower() in seen_paths:
