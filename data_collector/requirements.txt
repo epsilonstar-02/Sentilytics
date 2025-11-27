@@ -1,0 +1,5 @@
+yt-dlp
+python-dotenv
+tiktoken
+openai
+google-api-python-client

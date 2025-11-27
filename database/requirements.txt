@@ -1,0 +1,12 @@
+# PostgreSQL Database Requirements
+# Add these to your main requirements.txt
+
+# Database drivers
+psycopg2-binary>=2.9.9
+SQLAlchemy>=2.0.23
+
+# Optional: For async operations
+asyncpg>=0.29.0
+
+# Optional: For database migrations (if you want to use Alembic later)
+alembic>=1.13.0
