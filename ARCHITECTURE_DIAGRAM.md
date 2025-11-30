@@ -1,5 +1,7 @@
 # System Architecture Diagram
 
+<img width="1753" height="1241" alt="ArchitectureDiagram" src="https://github.com/user-attachments/assets/963dcdea-f9a4-42bd-b2d1-c9da5b786fb1" />
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                         USER QUERY INTERFACE                                 │
