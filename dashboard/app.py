@@ -40,14 +40,14 @@ CUSTOM_CSS = """
 
 /* Body styling */
 body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
+    background: linear-gradient(45deg, #c3cfe2 100%,  #f5f7fa 0%) !important;
     min-height: 100vh;
     font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 /* Header styling */
 .header-container {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(270deg, #764ba2 0%, #667eea 100%);
     border-radius: 20px;
     padding: 24px 32px;
     margin-bottom: 24px;
@@ -961,12 +961,12 @@ app.layout = dbc.Container([
         dbc.Row([
             dbc.Col([
                 html.Div([
-                    html.Span("🎬", style={"fontSize": "2rem", "marginRight": "12px"}),
-                    html.Span("YouTube Analytics", className="header-title"),
+                    html.Img(src="/assets/Logo.png", style={"height": "40px", "marginRight": "12px"}),
+                    html.Span("SENTILYTICS", className="header-title"),
                 ], className="d-flex align-items-center"),
                 html.P([
                     html.I(className="fas fa-robot me-2"),
-                    "AI-powered insights from YouTube tech reviews • ",
+                    "AI-powered sentiment insights from YouTube 🎬 tech reviews • ",
                     html.Span("7 specialized agents", style={"fontWeight": "600"})
                 ], className="header-subtitle mb-0 mt-1"),
             ], width=8),
