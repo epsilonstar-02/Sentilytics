@@ -1,15 +1,5 @@
 # YouTube Analytics Multi-Agent System - Consolidated Requirements
 
-# Core AI/Agent Dependencies
-google-adk
-google-genai
-google-generativeai
-openai
-
-# YouTube & Google APIs
-google-api-python-client
-yt-dlp
-
 # Data Processing & Analysis
 pandas
 numpy
@@ -26,3 +16,17 @@ dash-bootstrap-components>=1.5.0
 
 # Utilities
 python-dotenv>=1.0.0
+
+# Youtube
+yt-dlp
+
+# Core AI/Agent Dependencies
+openai
+google-adk
+google-genai
+google-generativeai
+
+
+# YouTube & Google APIs
+google-api-python-client
+

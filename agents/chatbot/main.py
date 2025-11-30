@@ -5,7 +5,8 @@ import logging
 from dotenv import load_dotenv
 
 # Add project root to sys.path to allow importing modules from the project
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+# Use insert(0) to prioritize project root over current directory
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 from google.adk.runners import InMemoryRunner
 from google.genai import types

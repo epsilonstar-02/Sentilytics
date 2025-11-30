@@ -18,6 +18,30 @@ brew install postgresql@15
 brew services start postgresql@15
 ```
 
+> [!NOTE]
+> **PostgreSQL 15 PATH Configuration (macOS)**
+> 
+> PostgreSQL 15 is installed as "keg-only" by Homebrew, which means the `psql` command won't be in your PATH by default. You need to add it manually:
+> 
+> ```bash
+> # Add PostgreSQL 15 to your PATH (add this to ~/.zshrc or ~/.bash_profile)
+> echo 'export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc
+> 
+> # Reload your shell configuration
+> source ~/.zshrc
+> ```
+> 
+> **Verify Installation:**
+> ```bash
+> psql --version
+> # Expected output: psql (PostgreSQL) 15.15 (Homebrew)
+> ```
+> 
+> **Start PostgreSQL Service:**
+> ```bash
+> brew services start postgresql@15
+> ```
+
 #### Ubuntu/Debian:
 ```bash
 sudo apt update
@@ -50,6 +74,10 @@ CREATE USER youtube_user WITH PASSWORD 'your_secure_password';
 
 -- Grant privileges
 GRANT ALL PRIVILEGES ON DATABASE youtube_analytics TO youtube_user;
+
+-- Grant superuser privileges (if needed for full access)
+ALTER ROLE youtube_user 
+  WITH SUPERUSER CREATEDB CREATEROLE REPLICATION BYPASSRLS LOGIN;
 
 -- Exit
 \q
