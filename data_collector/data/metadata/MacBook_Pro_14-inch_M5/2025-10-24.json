@@ -3695,5 +3695,244 @@
                 "commentCount": "6"
             }
         }
+    },
+    {
+        "product": "MacBook Pro 14-inch M5",
+        "date": "2025-10-24",
+        "video_id": "dR9PW9jBfSg",
+        "details": {
+            "kind": "youtube#video",
+            "etag": "XZLS6hqKE4lEo90TbjTQrMT7jaE",
+            "id": "dR9PW9jBfSg",
+            "snippet": {
+                "publishedAt": "2025-10-24T16:01:16Z",
+                "channelId": "UC8PlOwTzJOaotw2ONDwniKQ",
+                "title": "M5 MacBook Pro: Pushing the limits at 99°C, but a cooler performer than the M4",
+                "description": "M5 MacBook Pro: Pushing the limits at 99°C, but a cooler performer than the M4.",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/dR9PW9jBfSg/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/dR9PW9jBfSg/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/dR9PW9jBfSg/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/dR9PW9jBfSg/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/dR9PW9jBfSg/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "KoMe",
+                "tags": [
+                    "M5 MacBook Pro: Pushing the limits at 99°C",
+                    "but a cooler performer than the M4.",
+                    "M5 MacBook Pro",
+                    "M4 vs M5 MacBook Pro",
+                    "M5 Thermal Throttling",
+                    "M5 MacBook Pro Temperature",
+                    "M5 MacBook Pro Cooling",
+                    "Apple M5 Benchmark",
+                    "MacBook Pro Single Fan",
+                    "Cinebench 2024 Test",
+                    "M5 Gaming Performance",
+                    "Apple Silicon M5",
+                    "M5 Overheating"
+                ],
+                "categoryId": "28",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                    "title": "M5 MacBook Pro: Pushing the limits at 99°C, but a cooler performer than the M4",
+                    "description": "M5 MacBook Pro: Pushing the limits at 99°C, but a cooler performer than the M4."
+                },
+                "defaultAudioLanguage": "en"
+            },
+            "contentDetails": {
+                "duration": "PT3M35S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": false,
+                "contentRating": {},
+                "projection": "rectangular"
+            },
+            "statistics": {
+                "viewCount": "105",
+                "likeCount": "0",
+                "favoriteCount": "0",
+                "commentCount": "0"
+            }
+        }
+    },
+    {
+        "product": "MacBook Pro 14-inch M5",
+        "date": "2025-10-24",
+        "video_id": "llXjfI4DzSI",
+        "details": {
+            "kind": "youtube#video",
+            "etag": "VeIswzgZPbSMo4S4UV5RKCkpsck",
+            "id": "llXjfI4DzSI",
+            "snippet": {
+                "publishedAt": "2025-10-24T18:27:12Z",
+                "channelId": "UCfCEh6YyLy7pIXvc7Z4Dp1A",
+                "title": "MacBook Pro M1 Model A2338 Sound IC is shorted #macbooklcd #macbookprorepair #macbook",
+                "description": "Logic board repair MacBook Pro M1 model A2338 no power stuck on 5vol and checked it has been short sound IC. Ones more problem is no 5vol it problem with 5vol IC controller, replace new IC it work fine.\nSubscribe channel watch mores video: www.youtube.com/@wefixcomputerservice\nThanks you!",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/llXjfI4DzSI/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/llXjfI4DzSI/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/llXjfI4DzSI/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/llXjfI4DzSI/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/llXjfI4DzSI/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "JaiPC",
+                "tags": [
+                    "WeFix Computer",
+                    "Computer Repair",
+                    "Electronics Repair School",
+                    "laptop repair",
+                    "PC repair",
+                    "computer fix near me",
+                    "computer repair services",
+                    "how to replace a hard drive",
+                    "motherboard repair",
+                    "computer hardware",
+                    "how to upgrade RAM",
+                    "computer fan replacement",
+                    "how to fix a slow computer",
+                    "Windows troubleshooting",
+                    "how to remove a virus",
+                    "blue screen of death fix",
+                    "how to reinstall Windows",
+                    "network troubleshooting",
+                    "server maintenance",
+                    "build a PC",
+                    "computer forensics"
+                ],
+                "categoryId": "28",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                    "title": "MacBook Pro M1 Model A2338 Sound IC is shorted #macbooklcd #macbookprorepair #macbook",
+                    "description": "Logic board repair MacBook Pro M1 model A2338 no power stuck on 5vol and checked it has been short sound IC. Ones more problem is no 5vol it problem with 5vol IC controller, replace new IC it work fine.\nSubscribe channel watch mores video: www.youtube.com/@wefixcomputerservice\nThanks you!"
+                },
+                "defaultAudioLanguage": "en"
+            },
+            "contentDetails": {
+                "duration": "PT28S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": false,
+                "contentRating": {},
+                "projection": "rectangular"
+            },
+            "statistics": {
+                "viewCount": "130",
+                "likeCount": "5",
+                "favoriteCount": "0",
+                "commentCount": "0"
+            }
+        }
+    },
+    {
+        "product": "MacBook Pro 14-inch M5",
+        "date": "2025-10-24",
+        "video_id": "WkRlHZs1i9U",
+        "details": {
+            "kind": "youtube#video",
+            "etag": "cM-paEIaUQRTvtKjoiygG9D57iY",
+            "id": "WkRlHZs1i9U",
+            "snippet": {
+                "publishedAt": "2025-10-24T12:54:22Z",
+                "channelId": "UCV2A-Lsx2Telky6znXzGBvw",
+                "title": "💻 MacBook Pro 16” M1 Max (64GB RAM | 1TB SSD) | ₹1,24,900 😱🔥 | Cheapest MacBook Pro M1 Max in India",
+                "description": "🚀 Apple MacBook Pro 16” M1 Max – Unmatched Power. Unbelievable Price.\n✅ M1 Max Chip | 10-Core CPU | 32-Core GPU\n✅ 64GB RAM | 1TB SSD\n✅ 16” Liquid Retina XDR Display\n✅ 100% Condition | Pro-Level Machine\n\n💰 Original Price: ₹4,20,000 → Now ₹1,24,900 Only!\n🚚 Free PAN-India Delivery | Limited Stock | Authentic Apple Product\n\nPerfect for designers, developers, video editors, AI professionals & music producers.\n\n📍 MacStore Ahmedabad:\n009, First Floor, Kaveri Soham Vistara, Near Shilaj Over Bridge, Near Taj Hotel, Sindhu Bhavan Ext Road, S.P. Ring Road, Ahmedabad.\n\n📞 Book Now: +91 93132 02400\n📩 DM for Booking – Limited Units Only!\n\n#MacBookProM1Max #MacBookPro16 #CheapestMacBookProIndia #MacStoreAhmedabad #AppleIndia #TechDealsIndia #MacBookPro64GB #M1MaxPower #AppleLaptopDeals #HighPerformanceLaptopIndia",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/WkRlHZs1i9U/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/WkRlHZs1i9U/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/WkRlHZs1i9U/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/WkRlHZs1i9U/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/WkRlHZs1i9U/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "MacStore India",
+                "categoryId": "22",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                    "title": "💻 MacBook Pro 16” M1 Max (64GB RAM | 1TB SSD) | ₹1,24,900 😱🔥 | Cheapest MacBook Pro M1 Max in India",
+                    "description": "🚀 Apple MacBook Pro 16” M1 Max – Unmatched Power. Unbelievable Price.\n✅ M1 Max Chip | 10-Core CPU | 32-Core GPU\n✅ 64GB RAM | 1TB SSD\n✅ 16” Liquid Retina XDR Display\n✅ 100% Condition | Pro-Level Machine\n\n💰 Original Price: ₹4,20,000 → Now ₹1,24,900 Only!\n🚚 Free PAN-India Delivery | Limited Stock | Authentic Apple Product\n\nPerfect for designers, developers, video editors, AI professionals & music producers.\n\n📍 MacStore Ahmedabad:\n009, First Floor, Kaveri Soham Vistara, Near Shilaj Over Bridge, Near Taj Hotel, Sindhu Bhavan Ext Road, S.P. Ring Road, Ahmedabad.\n\n📞 Book Now: +91 93132 02400\n📩 DM for Booking – Limited Units Only!\n\n#MacBookProM1Max #MacBookPro16 #CheapestMacBookProIndia #MacStoreAhmedabad #AppleIndia #TechDealsIndia #MacBookPro64GB #M1MaxPower #AppleLaptopDeals #HighPerformanceLaptopIndia"
+                },
+                "defaultAudioLanguage": "hi"
+            },
+            "contentDetails": {
+                "duration": "PT1M4S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": false,
+                "contentRating": {},
+                "projection": "rectangular"
+            },
+            "statistics": {
+                "viewCount": "30",
+                "likeCount": "0",
+                "favoriteCount": "0",
+                "commentCount": "0"
+            }
+        }
     }
 ]

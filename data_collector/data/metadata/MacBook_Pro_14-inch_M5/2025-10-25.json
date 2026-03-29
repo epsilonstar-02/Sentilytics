@@ -4683,5 +4683,167 @@
                 "commentCount": "215"
             }
         }
+    },
+    {
+        "product": "MacBook Pro 14-inch M5",
+        "date": "2025-10-25",
+        "video_id": "4yhRHM4oIgo",
+        "details": {
+            "kind": "youtube#video",
+            "etag": "W_Hwb6bXPyiOHIH8voS2M_KTe5E",
+            "id": "4yhRHM4oIgo",
+            "snippet": {
+                "publishedAt": "2025-10-25T14:30:04Z",
+                "channelId": "UCpIYONlObI81XveozSq7EXA",
+                "title": "Apple M5 Release Feels WRONG",
+                "description": "The Apple M5 release feels so wrong with their confusing chip lineup that now includes M5, M4 Pro and Max, and M3 Ultra. But here's the truth: my M1 Pro from 2022 is still a workhorse that performs the same as the M1 Max for coding and design work. We break down why you don't need the Max model, why the base model might be enough for students, and share some geeky discoveries about USB-C charging that's actually killing your battery. If you're thinking about upgrading, watch this first!\n\nUnlock the full potential of your online presence with Kabarza and Samuel—experts in web design and development (respectively), powered by cutting-edge AI solutions. We blend creative design with advanced tech to deliver smart, high-impact websites that stand out. Ready to elevate your business? Contact us today and see what AI-driven innovation can do for you!\n\nKabarza: https://kabarza.com\nSamuel: https://samuelgregory.co.uk\n\n—\n\nTIMESTAMPS:\n0:00 - Why M5 Release Feels Wrong \n1:32 - M5 Chip Lineup Confusion \n1:59 - M1 Pro Still Perfect in 2024 💻\n2:49 - Base vs Pro vs Max Breakdown \n4:05 - Student & Budget Picks \n5:04 - Heavy User Experience \n5:52 - PC to Mac Switch Story 🔄\n7:24 - Cost Breakdown Value \n8:17 - USB-C Charging Discovery \n11:03 - Shocking Power Test Results \n12:28 - What is \"CMD + AI\"?\n\n—\n\nLINKS:\n📷 Instagram: https://www.instagram.com/cmdaishow\n\n—\n\n#AppleM5 #MacBook #TechReview #Programming #AppleSilicon #M1Pro",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/4yhRHM4oIgo/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/4yhRHM4oIgo/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/4yhRHM4oIgo/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/4yhRHM4oIgo/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/4yhRHM4oIgo/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Cmd+AI",
+                "tags": [
+                    "ai",
+                    "artificial intelligence",
+                    "web design",
+                    "web development",
+                    "websites",
+                    "html",
+                    "css",
+                    "javascript",
+                    "figma",
+                    "graphic design",
+                    "website design",
+                    "website development",
+                    "web dev",
+                    "coding",
+                    "programming",
+                    "software engineering",
+                    "llm",
+                    "large language models",
+                    "openai",
+                    "chatgpt",
+                    "anthropic",
+                    "claude",
+                    "google",
+                    "gemini",
+                    "deepseek",
+                    "claude code"
+                ],
+                "categoryId": "28",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en-GB",
+                "localized": {
+                    "title": "Apple M5 Release Feels WRONG",
+                    "description": "The Apple M5 release feels so wrong with their confusing chip lineup that now includes M5, M4 Pro and Max, and M3 Ultra. But here's the truth: my M1 Pro from 2022 is still a workhorse that performs the same as the M1 Max for coding and design work. We break down why you don't need the Max model, why the base model might be enough for students, and share some geeky discoveries about USB-C charging that's actually killing your battery. If you're thinking about upgrading, watch this first!\n\nUnlock the full potential of your online presence with Kabarza and Samuel—experts in web design and development (respectively), powered by cutting-edge AI solutions. We blend creative design with advanced tech to deliver smart, high-impact websites that stand out. Ready to elevate your business? Contact us today and see what AI-driven innovation can do for you!\n\nKabarza: https://kabarza.com\nSamuel: https://samuelgregory.co.uk\n\n—\n\nTIMESTAMPS:\n0:00 - Why M5 Release Feels Wrong \n1:32 - M5 Chip Lineup Confusion \n1:59 - M1 Pro Still Perfect in 2024 💻\n2:49 - Base vs Pro vs Max Breakdown \n4:05 - Student & Budget Picks \n5:04 - Heavy User Experience \n5:52 - PC to Mac Switch Story 🔄\n7:24 - Cost Breakdown Value \n8:17 - USB-C Charging Discovery \n11:03 - Shocking Power Test Results \n12:28 - What is \"CMD + AI\"?\n\n—\n\nLINKS:\n📷 Instagram: https://www.instagram.com/cmdaishow\n\n—\n\n#AppleM5 #MacBook #TechReview #Programming #AppleSilicon #M1Pro"
+                },
+                "defaultAudioLanguage": "en-GB"
+            },
+            "contentDetails": {
+                "duration": "PT12M39S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": false,
+                "contentRating": {},
+                "projection": "rectangular"
+            },
+            "statistics": {
+                "viewCount": "2561",
+                "likeCount": "38",
+                "favoriteCount": "0",
+                "commentCount": "16"
+            }
+        }
+    },
+    {
+        "product": "MacBook Pro 14-inch M5",
+        "date": "2025-10-25",
+        "video_id": "WuvXWiHoc8g",
+        "details": {
+            "kind": "youtube#video",
+            "etag": "tGxbiLn1Y-hEzkt4t8DRCInIBTI",
+            "id": "WuvXWiHoc8g",
+            "snippet": {
+                "publishedAt": "2025-10-25T13:12:18Z",
+                "channelId": "UCsNDK6y4xrUfsLyfPvHb85Q",
+                "title": "Macbook Pro M1🔥 2020 💻 Used Laptop Price In BD 2025😱",
+                "description": "Macbook M1 2020 Ram 16 Ssd 512 \n\n🛒 আমাদের শপ লোকেশন \n𝐌𝐢𝐫𝐩𝐮𝐫 𝟏𝟎 ঃ\n 📞হটলাইন: ০১৬ ০৪৬ ৯৯৫ ৪২\n 🏠 𝐁𝐮𝐢𝐥𝐝𝐢𝐧𝐠: 𝟏𝟑𝟎𝟏/𝟏, 𝐋𝐞𝐯𝐞𝐥: 𝟐\n মেট্রো পিলার নং ; ২৬৭ - ২৬৮ মাঝ বরাবর পূর্ব পাশে ।\n বেগম রোকেয়া সরণি, কাজীপাড়া, মিরপুর ১০, ঢাকা ১২১৬।\nbest macbook pro, best macbook pro 2025, macbook pro m1, macbook pro m1 vs, m1 macbook pro, m1 pro macbook, m1 pro macbook pro, macbook pro m1 pro, macbook pro m1 max, macbook pro m1 speed test, best macbook pro to buy in 2024, best macbook pro accessories, macbook pro m1 vs i9, m1 macbook pro 13, macbook m1 pro, m1 max macbook pro, macbook pro m1 review, macbook pro m1 benchmark, m1 vs m2 macbook pro, m1 vs m5 macbook pro, macbook pro m1 vs intel, m1 macbook pro vs air, apple m1 macbook pro, m1 pro macbook pro review",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/WuvXWiHoc8g/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/WuvXWiHoc8g/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/WuvXWiHoc8g/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/WuvXWiHoc8g/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/WuvXWiHoc8g/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "Tech Valley",
+                "categoryId": "28",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "bn",
+                "localized": {
+                    "title": "Macbook Pro M1🔥 2020 💻 Used Laptop Price In BD 2025😱",
+                    "description": "Macbook M1 2020 Ram 16 Ssd 512 \n\n🛒 আমাদের শপ লোকেশন \n𝐌𝐢𝐫𝐩𝐮𝐫 𝟏𝟎 ঃ\n 📞হটলাইন: ০১৬ ০৪৬ ৯৯৫ ৪২\n 🏠 𝐁𝐮𝐢𝐥𝐝𝐢𝐧𝐠: 𝟏𝟑𝟎𝟏/𝟏, 𝐋𝐞𝐯𝐞𝐥: 𝟐\n মেট্রো পিলার নং ; ২৬৭ - ২৬৮ মাঝ বরাবর পূর্ব পাশে ।\n বেগম রোকেয়া সরণি, কাজীপাড়া, মিরপুর ১০, ঢাকা ১২১৬।\nbest macbook pro, best macbook pro 2025, macbook pro m1, macbook pro m1 vs, m1 macbook pro, m1 pro macbook, m1 pro macbook pro, macbook pro m1 pro, macbook pro m1 max, macbook pro m1 speed test, best macbook pro to buy in 2024, best macbook pro accessories, macbook pro m1 vs i9, m1 macbook pro 13, macbook m1 pro, m1 max macbook pro, macbook pro m1 review, macbook pro m1 benchmark, m1 vs m2 macbook pro, m1 vs m5 macbook pro, macbook pro m1 vs intel, m1 macbook pro vs air, apple m1 macbook pro, m1 pro macbook pro review"
+                },
+                "defaultAudioLanguage": "bn"
+            },
+            "contentDetails": {
+                "duration": "PT55S",
+                "dimension": "2d",
+                "definition": "hd",
+                "caption": "false",
+                "licensedContent": false,
+                "contentRating": {},
+                "projection": "rectangular"
+            },
+            "statistics": {
+                "viewCount": "302",
+                "likeCount": "2",
+                "favoriteCount": "0",
+                "commentCount": "0"
+            }
+        }
     }
 ]

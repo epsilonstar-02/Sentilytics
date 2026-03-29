@@ -4,6 +4,7 @@ import time
 import random
 import re
 import logging
+import argparse
 from datetime import datetime, timedelta
 from pathlib import Path
 import yt_dlp
@@ -14,11 +15,13 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+def setup_logging(verbose=False):
+    """Configure logging with optional verbose mode for detailed transcript download info."""
+    level = logging.DEBUG if verbose else logging.INFO
+    logging.basicConfig(
+        level=level,
+        format="%(asctime)s - %(levelname)s - %(message)s"
+    )
 
 YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 
@@ -26,9 +29,8 @@ if not YOUTUBE_API_KEY:
     logging.warning("YOUTUBE_API_KEY not found in environment variables. API calls will fail.")
 
 PRODUCTS = [
-    {"name": "iPhone 17 Pro"},
     {"name": "ChatGPT GPT-5"},
-    {"name": "MacBook Pro 14-inch M5"},
+    {"name": "MacBook Pro 14-inch M5"}
 ]
 
 
@@ -96,12 +98,21 @@ def get_video_details_api(service, video_ids):
             
     return details
 
-def get_transcript(video_id):
+def get_transcript(video_id, video_title=None):
     """
     Retrieve English transcripts for a given YouTube video ID using yt-dlp.
-    Returns the transcript as a continuous paragraph of text.
+    Returns a tuple of (transcript_text, status) where status is one of:
+    - 'success': Transcript was successfully retrieved
+    - 'rate_limited': YouTube rate limited the request
+    - 'no_captions': Video has no captions available
+    - 'download_error': yt-dlp failed to download
+    - 'parse_error': Failed to parse the VTT file
+    - 'empty': Transcript file was empty
     """
     video_url = f'https://www.youtube.com/watch?v={video_id}'
+    display_title = f"'{video_title[:40]}...'" if video_title and len(video_title) > 40 else f"'{video_title}'" if video_title else video_id
+    
+    logging.debug(f"  Attempting transcript download for {display_title}")
     
     # Use a temp directory for transcripts
     script_dir = Path(__file__).resolve().parent
@@ -127,7 +138,6 @@ def get_transcript(video_id):
 
     if cookies_file.exists():
         ydl_opts['cookiefile'] = str(cookies_file)
-        # logging.info("Found cookies.txt, using authenticated yt-dlp session.")
 
     # Clear any stale transcript artifacts
     for stale in transcript_output_dir.glob(f'{video_id}.*.vtt'):
@@ -142,19 +152,20 @@ def get_transcript(video_id):
     except DownloadError as e:
         msg = str(e)
         if detect_rate_limited_error(msg):
-            logging.warning(f"Rate limited for {video_id}")
-            return None
-        # logging.error(f"yt-dlp download error for {video_id}: {msg}")
-        return None
+            logging.warning(f"  ⚠ RATE LIMITED: {display_title} - Consider waiting before retrying")
+            return None, 'rate_limited'
+        logging.debug(f"  ✗ Download error for {display_title}: {msg[:100]}")
+        return None, 'download_error'
     except Exception as e:
-        # logging.error(f"yt-dlp unexpected error for {video_id}: {e}")
-        return None
+        logging.debug(f"  ✗ Unexpected error for {display_title}: {e}")
+        return None, 'download_error'
 
     # Find the downloaded VTT file
     transcript_file = next(transcript_output_dir.glob(f'{video_id}.*.vtt'), None)
     
     if not transcript_file:
-        return None
+        logging.debug(f"  ✗ No captions available for {display_title}")
+        return None, 'no_captions'
 
     # Parse VTT
     try:
@@ -188,13 +199,45 @@ def get_transcript(video_id):
         transcript_file.unlink()
         
         if not text_lines:
-            return None
-            
-        return " ".join(text_lines).replace('\n', ' ').replace('\r', ' ')
+            logging.debug(f"  ✗ Empty transcript for {display_title}")
+            return None, 'empty'
+        
+        transcript_text = " ".join(text_lines).replace('\n', ' ').replace('\r', ' ')
+        word_count = len(transcript_text.split())
+        logging.debug(f"  ✓ Got transcript for {display_title} ({word_count} words)")
+        return transcript_text, 'success'
         
     except Exception as e:
-        logging.error(f"Error parsing transcript for {video_id}: {e}")
-        return None
+        logging.error(f"  ✗ Parse error for {display_title}: {e}")
+        return None, 'parse_error'
+
+
+def find_latest_collected_date(transcripts_dir):
+    """
+    Find the latest date that has data collected across all products.
+    Returns the day after the latest date found, so we resume from new data.
+    """
+    latest_date = None
+    
+    for product in PRODUCTS:
+        product_safe_name = product['name'].replace(' ', '_')
+        prod_trans_dir = os.path.join(transcripts_dir, product_safe_name)
+        
+        if not os.path.exists(prod_trans_dir):
+            continue
+            
+        for filename in os.listdir(prod_trans_dir):
+            if filename.endswith('.json'):
+                date_str = filename.replace('.json', '')
+                try:
+                    file_date = datetime.strptime(date_str, "%Y-%m-%d")
+                    if latest_date is None or file_date > latest_date:
+                        latest_date = file_date
+                except ValueError:
+                    continue
+    
+    return latest_date
+
 
 def main():
     service = get_youtube_service()
@@ -206,9 +249,26 @@ def main():
     os.makedirs(transcripts_dir, exist_ok=True)
 
     # Define the date range for data collection
-    # Starting from Oct 23, 2025 to Nov 23, 2025 (Current Date)
-    start_date = datetime(2025, 10, 23)
-    end_date = datetime(2025, 11, 23)
+    original_start_date = datetime(2025, 10, 23)
+    end_date = datetime(2025, 11, 15)
+    
+    # Check for --resume flag to skip already collected dates
+    args = parse_args()
+    if args.resume:
+        latest_date = find_latest_collected_date(transcripts_dir)
+        if latest_date:
+            # Start from the day after the latest collected date
+            start_date = latest_date + timedelta(days=1)
+            logging.info(f"Resuming from {start_date.strftime('%Y-%m-%d')} (latest data: {latest_date.strftime('%Y-%m-%d')})")
+        else:
+            start_date = original_start_date
+            logging.info("No existing data found, starting from beginning.")
+    else:
+        start_date = original_start_date
+    
+    if start_date > end_date:
+        logging.info("All dates already collected. Nothing to do.")
+        return
     
     current_date = start_date
     while current_date <= end_date:
@@ -273,28 +333,58 @@ def main():
             
             # Get details for all videos found
             video_details_map = get_video_details_api(service, video_ids)
+            
+            # Track statistics for this product/date
+            stats = {
+                'attempted': 0,
+                'success': 0,
+                'no_captions': 0,
+                'rate_limited': 0,
+                'download_error': 0,
+                'parse_error': 0,
+                'empty': 0,
+                'skipped_existing': 0,
+                'skipped_no_details': 0
+            }
 
             for video_id in video_ids:
                 if count >= 100:
-                    logging.info(f"Reached target of 100 transcripts for {product_name} on {date_str}.")
+                    logging.info(f"✓ Reached target of 100 transcripts for {product_name} on {date_str}.")
                     break
                     
                 if video_id in existing_video_ids:
+                    stats['skipped_existing'] += 1
                     continue
                 
                 details = video_details_map.get(video_id)
                 if not details:
+                    stats['skipped_no_details'] += 1
                     continue
                     
                 title = details['snippet']['title']
+                stats['attempted'] += 1
                 
                 # Add delay to avoid rate limiting for yt-dlp
                 sleep_time = random.uniform(2, 5)
                 time.sleep(sleep_time)
+                
+                # Progress indicator every 10 attempts
+                if stats['attempted'] % 10 == 0:
+                    logging.info(f"  Progress: {stats['attempted']} attempted, {stats['success']} successful...")
                     
-                transcript = get_transcript(video_id)
+                transcript, status = get_transcript(video_id, title)
+                
+                # Track the status
+                if status != 'success':
+                    stats[status] = stats.get(status, 0) + 1
+                    
+                    # If rate limited, log warning and consider stopping
+                    if status == 'rate_limited':
+                        logging.warning(f"  ⚠ Rate limit hit after {stats['attempted']} attempts. Consider pausing.")
                 
                 if transcript:
+                    stats['success'] += 1
+                    
                     # Save Transcript
                     trans_entry = {
                         "product": product_name,
@@ -325,13 +415,37 @@ def main():
                         with open(meta_filepath, 'w', encoding='utf-8') as f:
                             json.dump(collected_metadata, f, indent=4, ensure_ascii=False)
                             
-                        logging.info(f"[{count}/100] Saved data for {product_name} ({date_str}): {title[:30]}...")
+                        logging.info(f"  ✓ [{count}/100] Saved: {title[:50]}...")
                     except Exception as e:
-                        logging.error(f"Failed to save progress: {e}")
-                else:
-                    pass
+                        logging.error(f"  ✗ Failed to save progress: {e}")
+            
+            # Log summary statistics for this product/date
+            if stats['attempted'] > 0:
+                success_rate = (stats['success'] / stats['attempted']) * 100
+                logging.info(f"  ── Summary for {product_name} on {date_str} ──")
+                logging.info(f"     Attempted: {stats['attempted']} | Success: {stats['success']} ({success_rate:.1f}%)")
+                if stats['no_captions'] > 0:
+                    logging.info(f"     No captions: {stats['no_captions']}")
+                if stats['rate_limited'] > 0:
+                    logging.warning(f"     Rate limited: {stats['rate_limited']}")
+                if stats['download_error'] > 0:
+                    logging.info(f"     Download errors: {stats['download_error']}")
+                if stats['skipped_existing'] > 0:
+                    logging.info(f"     Skipped (already have): {stats['skipped_existing']}")
             
         current_date += timedelta(days=1)
 
+
+def parse_args():
+    parser = argparse.ArgumentParser(description='Collect YouTube video data and transcripts')
+    parser.add_argument('-v', '--verbose', action='store_true',
+                        help='Enable verbose logging (shows individual transcript download attempts)')
+    parser.add_argument('-r', '--resume', action='store_true',
+                        help='Resume from the day after the latest collected date (skip already collected dates)')
+    return parser.parse_args()
+
+
 if __name__ == "__main__":
+    args = parse_args()
+    setup_logging(verbose=args.verbose)
     main()
